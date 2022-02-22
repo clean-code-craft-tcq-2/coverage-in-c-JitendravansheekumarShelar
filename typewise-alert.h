@@ -43,7 +43,7 @@ typedef struct
 
 typedef struct
 {
-   CoolingType  CoolingType_en;
+   BreachType   BreachType_en;
    char*        emailMessage;
 }breachTypeInfo_st;
 
