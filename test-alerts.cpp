@@ -10,21 +10,21 @@ TEST_CASE("infers the breach according to limits") {
 }
 
 TEST_CASE("Classify temperature according to Cooling Type") {
-  REQUIRE(classifyTemperatureBreach(0,-20) == TOO_LOW);
-  REQUIRE(classifyTemperatureBreach(1,60) == TOO_HIGH);
-  REQUIRE(classifyTemperatureBreach(2,30) == NORMAL);
+  REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING,-20) == TOO_LOW);
+  REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING,60) == TOO_HIGH);
+  REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING,30) == NORMAL);
 }
 
 TEST_CASE("Invoke Alert Target to send email") {
-  REQUIRE(invokeAlertTarget(0,TOO_LOW) == 0);
-  REQUIRE(invokeAlertTarget(1,TOO_HIGH) == 1);
+  REQUIRE(invokeAlertTarget(TO_CONTROLLER,TOO_LOW) == 0);
+  REQUIRE(invokeAlertTarget(TO_EMAIL,TOO_HIGH) == 1);
 }
 
 TEST_CASE("Check the breach & Alert the target") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = 1;
-  REQUIRE(checkAndAlert(0,batteryChar,-20) == 0);
-  REQUIRE(checkAndAlert(1,batteryChar,60) == 1);
+  REQUIRE(checkAndAlert(TO_CONTROLLER,batteryChar,-20) == 0);
+  REQUIRE(checkAndAlert(TO_EMAIL,batteryChar,60) == 1);
 }
 
 TEST_CASE("Send message to Controller") {
