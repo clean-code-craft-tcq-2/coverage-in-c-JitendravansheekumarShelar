@@ -12,6 +12,5 @@ TEST_CASE("infers the breach according to limits") {
 TEST_CASE("Classify temperature according to Cooling Type") {
   REQUIRE(classifyTemperatureBreach(0,20) == NORMAL);
   REQUIRE(classifyTemperatureBreach(1,25) == NORMAL);
-  REQUIRE(classifyTemperatureBreach(2,30) == NORMAL);
 }
 
