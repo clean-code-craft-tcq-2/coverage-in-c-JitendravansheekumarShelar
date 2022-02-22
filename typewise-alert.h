@@ -25,8 +25,13 @@ typedef struct {
   char brand[48];
 } BatteryCharacter;
 
-void checkAndAlert(
-  AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
-
+void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
 void sendToController(BreachType breachType);
 void sendToEmail(BreachType breachType);
+
+#define PASSIVE_COOLING_LOWERLIMIT 0u
+#define PASSIVE_COOLING_UPPERLIMIT 35u
+#define HI_ACTIVE_COOLING_LOWERLIMIT 0u
+#define HI_ACTIVE_COOLING_UPPERLIMIT 45u
+#define MED_ACTIVE_COOLING_LOWERLIMIT 0u
+#define MED_ACTIVE_COOLING_UPPERLIMIT 40u
