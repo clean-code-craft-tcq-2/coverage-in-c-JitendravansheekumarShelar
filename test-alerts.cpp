@@ -22,7 +22,7 @@ TEST_CASE("Invoke Alert Target to send email") {
 
 TEST_CASE("Check the breach & Alert the target") {
   BatteryCharacter batteryChar;
-  batteryChar.coolingType = 1;
+  batteryChar.coolingType = HI_ACTIVE_COOLING;
   REQUIRE(checkAndAlert(TO_CONTROLLER,batteryChar,-20) == 0);
   REQUIRE(checkAndAlert(TO_EMAIL,batteryChar,60) == 1);
 }
